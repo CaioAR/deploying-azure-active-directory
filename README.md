@@ -8,7 +8,7 @@ This lab will explore Azure Active Directory, in it will provision virtual machi
 
 <h2>Process</h2>
 We start by building a new Azure Virtual Network. When one is created, hidden services are automatically created, like DHCP and DNS.
-<img src="https://imgur.com/UgpFaqY" alt="create virtual machine" />
+<img src="https://imgur.com/UgpFaqY" alt="create virtual machine"/>
 
 <img src="https://imgur.com/u6ke0n5" alt="create client" />
 
