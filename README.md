@@ -8,41 +8,51 @@ This lab will explore Azure Active Directory, in it will provision virtual machi
 
 <h2>Process</h2>
 We start by building a new Azure Virtual Network. When one is created, hidden services are automatically created, like DHCP and DNS.
+<br />
 <img src="https://imgur.com/UgpFaqY.png" alt="create virtual machine"/>
 
 <img src="https://imgur.com/u6ke0n5.png" alt="create client" />
 
 We can now take a look at Network Watcher > Topology in Azure Portal to ensure that both virtual machines are on the same subnet.
+<br />
 <img src="https://imgur.com/5RAu0Wz.png" alt="network watcher" />
 
 At this point we want to change our domain controller's IP address from dynamic to static.
+<br />
 <img src="https://imgur.com/UaWkztS.png" alt="ipconfig" />
 <img src="https://imgur.com/QX6B322.png" alt="edit ip configuration" />
 
 At this point we'll allow DC-1 to use ICMP so we can ping it.
 We'll connect to DC-1 using RDP.
+<br />
 
 <img src="https://imgur.com/JVKApZm.png" alt="windows defender firewall" />
 
 Now we are able to ping our client virtual machine.
+<br />
 <img src="https://imgur.com/5kA34UA.png" alt="ping" />
 
 <h2>Installing Active Directory</h2>
 Now we will install and deploy Active Directory on our domain controller.
+<br />
 <img src="https://imgur.com/HqNApWm.png" alt="deployment of AD" />
 <img src="https://imgur.com/QcnfHvJ.png" alt="Active Directory" />
 
 We can now create an organizational unit for employees.
+<br />
 <img src="https://imgur.com/Ffm41Zy.png" alt="OU" />
 <img src="https://imgur.com/cosPQrc.png" alt="employees" />
 
 We can then create our first user
+<br />
 <img src="https://imgur.com/Ycb2LJm.png" alt="User creation" />
 <img src="https://imgur.com/uS2Zudu.png" alt="first user" />
 
 Once the profile has been established we will add it to the domain admin's OU.
+<br />
 <img src="https://imgur.com/HNQTBkZ.png" alt="domain admin" />
 We can now log in with the new credentials.
+<br />
 
 <img src="https://imgur.com/qDG3KN6.png" alt="login for john-admin" />
 Checking our command line we can see we're logged in as our new user.
@@ -62,9 +72,12 @@ And it works! Logging in with our changed name will show that your are now loggi
 So normally, this would be done at scale with group policy, but in the interest of scope, we'll just be doing this with individual users.
 <br />
 Now on our client machine we'll add all of the domain users to RDP capabilities.
+<br />
 <img src="https://imgur.com/EkuXStB.png" alt="RDP" />
 I have a powershell script to randomly assign names and create new users within our OU at scale that I'll run within Powershell ISE.
+<br />
 <img src="https://imgur.com/T0fg9MI.png" alt="powershell" />
 I can pull out one of these randomly generated names and attempt a login with it after the domaincorp.com domain, and we're able to log in!
+<br />
 <img src="https://imgur.com/hpMlum7.png" alt="login as new user" />
 
